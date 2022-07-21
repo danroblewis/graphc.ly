@@ -3,14 +3,16 @@ var sys = require("sys")
 var util = require('util')
 var socketio = require("socket.io")
 var spawn = require('child_process').spawn;
-var Buffer = require('buffer').Buffer
+//var Buffer = require('buffer').Buffer
 var fs = require('fs')
 var Compiler = require('./lib/compiler'); 
 var jsondiffpatch = require('jsondiffpatch'); 
+var http = require('http');
 
-app = express.createServer()
-app.listen(process.env.PORT || 3000)
+app = express()
+server = http.createServer(app)
 
+/*
 app.configure(function(){
     app.use(express.methodOverride())
     app.use(express.bodyParser())
@@ -18,14 +20,16 @@ app.configure(function(){
     app.use(express.static(__dirname + '/public'))
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true }))
 })
+*/
 
-var io = socketio.listen(app, { 'log level': 1 })
-//var io = socketio.listen(app)
+app.use(express.static('public'))
+
+var io = new socketio.Server(server)
 
 
 var c_program = '#include <stdio.h>\n\nint main(void) {\n  printf("asdf\\n")\n  return 0;\n}\n'
 c_program = fs.readFileSync('history/' + fs.readdirSync('history/').slice(-1)[0]).toString()
-var syntax = 'javascript'
+var syntax = 'python'
 var stdout = ''
 var stderr = ''
 var last_c_program_saved = c_program
@@ -119,4 +123,9 @@ setInterval(function() {
   var fname = "history/" + d.toJSON().replace(/[^0-9]/g,'')
   fs.writeFile(fname, c_program)
 }, (1000*30)) //every 30 seconds 
+
+
+server.listen(process.env.PORT || 3000, function() {
+  console.log("listening on server port")
+})
 

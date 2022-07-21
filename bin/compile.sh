@@ -9,7 +9,7 @@ case $syntax in
   rm "$1" 2>/dev/null
   ;;
 'python')
-  python
+  python3
   ;;
 'javascript')
   node

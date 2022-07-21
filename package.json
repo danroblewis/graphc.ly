@@ -1,58 +1,28 @@
 {
-   "name": "c.ly",
-   "version": "0.0.1",
-   "description": "socket.io real-time C compiler",
-   "keywords": [
-       "socket.io", "basic", "express", "c", "compiler"
-   ],
-   "maintainers": [
-       {
-           "name": "Daniel Lewis",
-           "email": "daniel.robert.lewis@gmail.com",
-           "web": "http://www.daniellewis.org/" 
-       } 
-   ],
-   "contributors": [
-       {
-           "name": "Daniel Lewis",
-           "email": "daniel@levelsetlabs.com",
-           "web": "http://www.familab.org/" 
-       }, 
-       {
-           "name": "David Rivera", 
-           "email": "David.R.Rivera193@gmail.com", 
-           "web": "http://www.protodx.com/"
-       }
-   ],
-   "scripts":{
-     "start":"node server"
-   }, 
-   "bugs": {
-       "email": "daniel@levelsetlabs.com",
-       "web": "http://www.familab.org" 
-   },
-   "licenses": [
-       {
-           "type": "GPLv2",
-           "url": ""
-       } 
-   ],
-   "repository": {
-           "type": "git",
-           "url": "git@github.com:tetsuharu/c.ly.git" 
-    },
-   "dependencies": {
-       "socket.io": "0.8.5",
-       "express": "2.4.7", 
-       "jsondiffpatch": "0.0.8"
-   },
-   "os": ["linux"],
-   "cpu": ["x86", "x86_64"],
-   "engines": {
-     "node": "0.10.x"
-   },
-   "scripts": {
-   },
-   "directories": {
-   } 
+  "name": "graphc.ly",
+  "version": "1.0.0",
+  "description": "Graphc.ly is an immediate-feedback programming environment for excruciatingly short programs THAT PRODUCE DOT FILES.",
+  "main": "graph.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danroblewis/graphc.ly.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danroblewis/graphc.ly/issues"
+  },
+  "homepage": "https://github.com/danroblewis/graphc.ly#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "jsondiffpatch": "^0.4.1",
+    "socket.io": "^4.5.1"
+  }
 }
